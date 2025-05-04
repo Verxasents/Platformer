@@ -320,7 +320,7 @@ public class Player : MonoBehaviour
         {
           Jump();
         }
-        else if (isWallDetected )
+        else if (isWallDetected)
         {
             WallJump();
         }
@@ -350,7 +350,7 @@ public class Player : MonoBehaviour
     {
         dustFx.Play();
         AudioManager.instance.PlaySFX(12);
-        canDoubleJump = true;
+        canDoubleJump = false;
         rb.velocity = new Vector2(wallJumpForce.x * -facingDir, wallJumpForce.y);
 
         Flip();
@@ -373,7 +373,7 @@ public class Player : MonoBehaviour
         
         bool canWallSlide = isWallDetected && rb.velocity.y < 0;
         float yModifer = yInput < 0 ? 1 : .05f;
-        
+
 
         if (canWallSlide == false)
             return;
