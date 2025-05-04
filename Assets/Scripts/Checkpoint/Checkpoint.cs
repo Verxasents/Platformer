@@ -23,6 +23,7 @@ public class Checkpoint : MonoBehaviour
 
         if (player != null)
             ActivateCheckpoint();
+        Debug.Log("Checkpoint!");
     }
 
     private void ActivateCheckpoint()
