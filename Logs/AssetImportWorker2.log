@@ -347,3 +347,8 @@ Start importing Assets/Prefab/VFX/Dust_FX.prefab using Guid(f1284c4a31cff064ca38
  -> (artifact id: 'a77ef7407f74d4038e8c09cf800a4679') in 0.013405 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 8
+Editor requested this worker to shutdown with reason: Scaling down because of idle timeout
+TcpMessagingSession - receive error: operation aborted. errorcode: 995, details: Bir iþ parçacýðý çýkýþý veya bir uygulama isteði nedeniyle G/Ç iþlemi iptal edildi.
+AssetImportWorker is now disconnected from the server
+Process exiting
+Exiting without the bug reporter. Application will terminate with return code 0
