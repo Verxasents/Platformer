@@ -5,7 +5,7 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
     private Animator anim => GetComponent<Animator>();
-    private bool active;
+    [SerializeField] private bool active;
 
     [SerializeField] private bool canBeReactivated;
 
@@ -23,7 +23,6 @@ public class Checkpoint : MonoBehaviour
 
         if (player != null)
             ActivateCheckpoint();
-        Debug.Log("Checkpoint!");
     }
 
     private void ActivateCheckpoint()

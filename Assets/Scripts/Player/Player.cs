@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject fruitDrop;
     [SerializeField] private DifficultyType gameDifficulty;
     private GameManager gameManager;
+    public static Player instance;
 
     private Rigidbody2D rb;
     private Animator anim;
@@ -22,6 +23,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float doubleJumpForce;
     private float defaultGravityScale;
     private bool canDoubleJump;
+    public bool canMove = true;
 
     [Header("Buffer & Coyote jump")]
     [SerializeField] private float bufferJumpWindow = .25f;
@@ -70,6 +72,15 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         cd = GetComponent<CapsuleCollider2D>();
         anim = GetComponentInChildren<Animator>();
+
+        if (instance != null && instance != this)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+        instance = this;
+
     }
 
     private void Start()
@@ -103,7 +114,11 @@ public class Player : MonoBehaviour
         HandleEnemyDetection();
         HandleInput();
         HandleWallSlide();
-        HandleMovement();
+
+        if (canMove)
+        {
+         HandleMovement();
+        }
         HandleFlip();
         HandleCollision();
         HandleAnimations();

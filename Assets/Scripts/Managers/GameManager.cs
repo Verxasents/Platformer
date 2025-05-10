@@ -165,7 +165,15 @@ public class GameManager : MonoBehaviour
 
     public void RestartLevel()
     {
-        UI_InGame.instance.fadeEffect.ScreenFade(1, .75f, LoadCurrentScene);
+        if (PlayerManager.instance.respawnPoint.name == "StartPoint")
+        {
+            UI_InGame.instance.fadeEffect.ScreenFade(1, .75f, LoadCurrentScene);
+
+        }
+        else
+        {
+            PlayerManager.instance.RespawnPlayer();
+        }
     }
 
     private void LoadCurrentScene() => SceneManager.LoadScene("Level_" + currentLevelIndex);

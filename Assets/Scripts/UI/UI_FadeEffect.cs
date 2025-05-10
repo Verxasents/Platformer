@@ -14,6 +14,7 @@ public class UI_FadeEffect : MonoBehaviour
 
     private IEnumerator FadeCoroutine(float targetAlpha, float duration, System.Action onComplete)
     {
+        Player.instance.canMove = false;
         float time = 0;
         Color currentColor = fadeImage.color;
 
@@ -32,5 +33,6 @@ public class UI_FadeEffect : MonoBehaviour
         fadeImage.color = new Color(currentColor.r, currentColor.g,currentColor.b, targetAlpha);
 
         onComplete?.Invoke();
+        Player.instance.canMove = true;
     }
 }
