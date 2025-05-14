@@ -216,6 +216,41 @@ public class Player : MonoBehaviour
 
     }
 
+    public void ResetPlayerAfterMenu()
+    {
+        // Karakter kontrolünü yeniden etkinleþtir
+        canBeControlled = true;
+
+        // Hareket kýsýtlamalarýný sýfýrla
+        canMove = true;
+        isKnocked = false;
+        isWallJumping = false;
+
+        // Hýz ve durumu sýfýrla
+        rb.velocity = Vector2.zero;
+
+        // Animator parametrelerini sýfýrla
+        anim.SetBool("isKnocked", false);
+
+        // Karakter collider'ýný etkinleþtir
+        cd.enabled = true;
+
+        // Yerçekimini normale döndür
+        rb.gravityScale = defaultGravityScale;
+
+        // Buffer ve coyote jump sýfýrlama
+        bufferJumpActivated = -1;
+        coyoteJumpActivated = -1;
+
+        // Joystick referansýný yenile (gerekirse)
+        if (joystick == null)
+            joystick = FindFirstObjectByType<Joystick>();
+
+        // Çift zýplama özelliðini sýfýrla
+        if (isGrounded)
+            canDoubleJump = true;
+    }
+
     public void Knockback(float sourceDamageXPosition)
     {
         float knockbackDir = 1;

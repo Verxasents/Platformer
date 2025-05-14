@@ -386,11 +386,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6836368205706407752, guid: 3f7b9b8ed1e4fac4d8edb35e252f5106, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -444.5
+      value: -60.02
       objectReference: {fileID: 0}
     - target: {fileID: 6836368205706407752, guid: 3f7b9b8ed1e4fac4d8edb35e252f5106, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.9
+      value: 104.99
       objectReference: {fileID: 0}
     - target: {fileID: 6836368205706407752, guid: 3f7b9b8ed1e4fac4d8edb35e252f5106, type: 3}
       propertyPath: m_LocalPosition.z
@@ -972,10 +972,6 @@ PrefabInstance:
     - target: {fileID: 2658283777352478317, guid: 5139c182559e6fc4186165b6cf5426f4, type: 3}
       propertyPath: m_Name
       value: UI_InGame
-      objectReference: {fileID: 0}
-    - target: {fileID: 2963895432498293224, guid: 5139c182559e6fc4186165b6cf5426f4, type: 3}
-      propertyPath: m_Color.a
-      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3224234544397027174, guid: 5139c182559e6fc4186165b6cf5426f4, type: 3}
       propertyPath: m_Pivot.x

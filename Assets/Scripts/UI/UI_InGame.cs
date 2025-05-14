@@ -37,13 +37,24 @@ public class UI_InGame : MonoBehaviour
     {
         if (isPaused)
         {
+            // Resume game
             isPaused = false;
-            Time.timeScale = 1; 
+            Time.timeScale = 1;
             pauseUI.SetActive(false);
+
+            // Reset player state if needed
+            if (Player.instance != null)
+            {
+                Player.instance.ResetPlayerAfterMenu();
+            }
+
+            // Reset input system
+            Input.ResetInputAxes();
         }
         else
         {
-            isPaused=true;
+            // Pause game
+            isPaused = true;
             Time.timeScale = 0;
             pauseUI.SetActive(true);
         }
@@ -51,6 +62,10 @@ public class UI_InGame : MonoBehaviour
 
     public void GoToMainMenuButton()
     {
+        // Critical fix: Reset time scale before going to main menu
+        Time.timeScale = 1;
+
+        // Load main menu scene
         SceneManager.LoadScene(0);
     }
 
