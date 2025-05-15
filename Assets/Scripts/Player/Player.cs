@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float wallJumpDuration = .6f;
     [SerializeField] private Vector2 wallJumpForce;
     private bool isWallJumping;
+    [SerializeField] private float wallSlideSpeed = 2f;
 
     [Header("Knockback")]
     [SerializeField] private float knockbackDuration = 1;
@@ -434,14 +435,18 @@ public class Player : MonoBehaviour
 
     private void HandleWallSlide()
     {
-        
-        bool canWallSlide = isWallDetected && rb.velocity.y < 0;
-        float yModifer = yInput < 0 ? 1 : .05f;
+        // Duvarda olup olmadýðýný ve düþüyor olup olmadýðýný kontrol et
+        bool canWallSlide = isWallDetected && !isGrounded && rb.velocity.y < 0;
 
+        if (canWallSlide)
+        {
+            // Duvara yapýþýk kal - yatay hýzý sýfýrla
+            rb.velocity = new Vector2(0, rb.velocity.y);
 
-        if (canWallSlide == false)
-            return;
-        rb.velocity = new Vector2(rb.velocity.x, rb.velocity.y * yModifer);
+            // Düþüþ hýzýný sýnýrla
+            if (rb.velocity.y < -wallSlideSpeed)
+                rb.velocity = new Vector2(0, -wallSlideSpeed);
+        }
     }
 
 
