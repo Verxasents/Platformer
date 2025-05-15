@@ -13503,7 +13503,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Arkaplan M\xFCzi\u011Fi"
+  m_text: Music
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 435096ac6b9985b4280e3a797b2871dc, type: 2}
   m_sharedMaterial: {fileID: -7276199878523273229, guid: 435096ac6b9985b4280e3a797b2871dc, type: 2}
@@ -14145,19 +14145,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 599086611}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 807925075}
-        m_TargetAssemblyTypeName: UI_SkinSelection, Assembly-CSharp
-        m_MethodName: PreviousSkin
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &599086611
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16073,7 +16061,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Ses Efektleri
+  m_text: Sound
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 435096ac6b9985b4280e3a797b2871dc, type: 2}
   m_sharedMaterial: {fileID: -7276199878523273229, guid: 435096ac6b9985b4280e3a797b2871dc, type: 2}
@@ -16503,6 +16491,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 820447283}
+        m_TargetAssemblyTypeName: UI_MainMenu, Assembly-CSharp
+        m_MethodName: SwitchUI
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 2050948433}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 820447283}
         m_TargetAssemblyTypeName: UI_MainMenu, Assembly-CSharp
         m_MethodName: MoveCameraToMainMenu
@@ -17092,7 +17092,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 4.159546, y: -542.99994}
+  m_AnchoredPosition: {x: 4.159546, y: -419}
   m_SizeDelta: {x: 156.63245, y: 3.7889404}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1307292690
