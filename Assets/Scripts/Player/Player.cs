@@ -25,6 +25,13 @@ public class Player : MonoBehaviour
     private bool canDoubleJump;
     public bool canMove = true;
 
+    [Header("Speed Boost")]
+    [SerializeField] private float speedBoostDelay = 2f; // Kaç saniye sonra hýzlansýn
+    [SerializeField] private float maxSpeedBoost = 1.5f; // En fazla kaç kat hýzlansýn  
+    [SerializeField] private float speedBoostRate = 0.2f; // Ne kadar hýzlý artsýn
+
+    private float runningTime = 0f;
+
     [Header("Buffer & Coyote jump")]
     [SerializeField] private float bufferJumpWindow = .25f;
     private float bufferJumpActivated = -1;
@@ -45,7 +52,7 @@ public class Player : MonoBehaviour
 
     [Header("Collision info")]
     [SerializeField] private float groundCheckDistance;
-    [SerializeField] private float wallCheckDistance;
+    [SerializeField] public float wallCheckDistance;
     [SerializeField] private LayerMask whatIsEnemy;
     [Space]
     [SerializeField] private Transform enemyCheck;
@@ -117,7 +124,6 @@ public class Player : MonoBehaviour
         if (isKnocked)
             return;
 
-
         HandleEnemyDetection();
         HandleInput();
         HandleWallSlide();
@@ -156,6 +162,7 @@ public class Player : MonoBehaviour
             gameManager.RestartLevel();
         }
     }
+
 
     private void UpdateGameDifficulty()
     {
@@ -472,8 +479,26 @@ public class Player : MonoBehaviour
 
         if (isWallJumping)
             return;
-        
-        rb.velocity = new Vector2(xInput * moveSpeed, rb.velocity.y);
+
+        bool isMoving = Mathf.Abs(xInput) > 0.1f;
+        float currentSpeed = moveSpeed;
+
+        if (isMoving) // && isGrounded kaldýrýldý
+        {
+            runningTime += Time.deltaTime;
+
+            if (runningTime > speedBoostDelay)
+            {
+                float speedBoost = Mathf.Min(maxSpeedBoost, 1f + (runningTime - speedBoostDelay) * speedBoostRate);
+                currentSpeed = moveSpeed * speedBoost;
+            }
+        }
+        else
+        {
+            runningTime = 0f; // Sadece hareket etmediðinde sýfýrla
+        }
+
+        rb.velocity = new Vector2(xInput * currentSpeed, rb.velocity.y);
     }
 
     private void HandleFlip()
